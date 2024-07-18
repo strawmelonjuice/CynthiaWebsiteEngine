@@ -10,5 +10,9 @@
 	{
 		"id": "git-pull",
 		"version": "latest"
+	},
+	{
+		"id": "emoji",
+		"version": "latest"
 	}
 ]

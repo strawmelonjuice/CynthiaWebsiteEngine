@@ -1,0 +1,28 @@
+# The port on which Cynthia hosts, since Cynthia was designed to be reverse-proxied, this port is usually higher than 1000.
+PORT = 3000
+[cache]
+# These rules are set for a reason: The higher they are set, the less requests we have to do to Node, external servers, etc.
+# High caching lifetimes can speed up Cynthia a whole lot, so think wisely before you lower any of these numbers!
+[cache.lifetimes]
+
+# How long (in seconds) to cache a CSS file after having minified and served it.
+stylesheets = 72000
+
+# How long (in seconds) to cache a JS file after having minified and served it.
+javascript = 1200
+
+# How long (in seconds) to cache an external output after having used it.
+forwarded = 1600
+
+# How long should a fully-ready-to-be-served page be cached?
+served = 50
+
+# Generator rules set how Cynthia generates web pages.
+[generator]
+site-baseurl = ""
+og-site-name = "My Cynthia Site!"
+[generator.meta]
+
+# Enables or disables pagetags in HTML metatags, these are officially supposed to be good for finding a website, but have been known to
+# get nerfed by  google, considering them spam.
+enable-tags = false

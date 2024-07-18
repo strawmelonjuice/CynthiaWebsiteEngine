@@ -1,0 +1,21 @@
+[
+	"default",
+	{
+		"sitename": "My Cynthia site!",
+		"favicon": "png/home.png",
+		"stylefile": "default.css",
+		"handlebar": {
+			"post": "default",
+			"page": "default"
+		},
+		"menulinks": [
+			{ "name": "A home page!", "href": "/" },
+			{ "name": "Posts!", "href": "/p/posts/" },
+			{ "name": "Another page", "href": "/p/2" },
+			{
+				"name": "About Cynthia",
+				"href": "/p/about"
+			}
+		]
+	}
+]
