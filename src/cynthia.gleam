@@ -3,7 +3,7 @@
 // Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE Version 3, see the LICENSE file for more information.
 import argv
 import colours
-import cynthia/config as cc
+import cynthia/contextloader/config.{type CynthiaConf} as cc
 import cynthia/router
 import cynthia/web.{Context}
 import gleam/erlang/process
@@ -28,9 +28,9 @@ pub fn main() {
   //     "Mar".magenta()
   // );
   io.println(
-    colours.bold(colours.fgdeeppink1("Cynthia"))
+    string.replace(colours.bold(colours.fgdeeppink1("Cynthia")), " ", "")
     <> " - version "
-    <> colours.fggreen(version)
+    <> string.replace(colours.fggreen(version), " ", "")
     <> "\nby "
     <> string.replace(
       colours.fgred2("Straw")
@@ -40,7 +40,9 @@ pub fn main() {
       "",
     )
     <> " / "
-    <> colours.fgmagenta("MLC Bloeiman"),
+    <> string.replace(colours.fgmagenta("MLC"), " ", "")
+    <> " "
+    <> string.replace(colours.fgmagenta("Bloeiman"), " ", ""),
   )
   let arguments = argv.load().arguments
   case arguments {
@@ -83,10 +85,8 @@ Run `cynthia help` for more information.",
   }
 }
 
-pub fn start(config: cc.CynthiaConf, dir: String) {
+pub fn start(config: CynthiaConf, dir: String) {
   let ctx = Context(active_directory: dir, config: config)
-  // This sets the logger to print INFO level logs, and other sensible defaults
-  // for a web application.
   wisp.configure_logger()
 
   // Generate a random secret key base for the application.

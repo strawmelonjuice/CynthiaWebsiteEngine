@@ -2,7 +2,7 @@
 //
 // Licensed under the GNU AFFERO GENERAL PUBLIC LICENSE Version 3, see the LICENSE file for more information.
 
-import cynthia/config.{type CynthiaConf}
+import cynthia/contextloader/config.{type CynthiaConf}
 import simplifile
 import wisp
 
